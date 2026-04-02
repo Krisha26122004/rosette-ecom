@@ -3,16 +3,22 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "install-server": "cd server && npm install",
-    "install-website": "cd website && npm install",
-    "install-all": "npm install && cd server && npm install && cd ../website && npm install",
-    "build": "cd website && npm install && npm run build",
-    "start": "npm start --prefix server",
+    "build": "npm install && cd website && npm install && npm run build",
+    "start": "node server/server.js",
     "dev": "concurrently \"npm run dev-server\" \"npm run dev-website\"",
     "dev-server": "cd server && npm run dev",
     "dev-website": "cd website && npm run dev"
   },
   "devDependencies": {
     "concurrently": "^8.2.2"
+  },
+  "dependencies": {
+    "bcryptjs": "^3.0.3",
+    "cors": "^2.8.6",
+    "dotenv": "^17.4.0",
+    "express": "^5.2.1",
+    "jsonwebtoken": "^9.0.3",
+    "mongoose": "^9.3.3",
+    "nodemailer": "^8.0.4"
   }
 }
