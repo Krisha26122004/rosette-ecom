@@ -7,7 +7,7 @@
     "install-website": "cd website && npm install",
     "install-all": "npm install && cd server && npm install && cd ../website && npm install",
     "build": "cd website && npm install && npm run build",
-    "start": "cd server && node server.js",
+    "start": "npm start --prefix server",
     "dev": "concurrently \"npm run dev-server\" \"npm run dev-website\"",
     "dev-server": "cd server && npm run dev",
     "dev-website": "cd website && npm run dev"
