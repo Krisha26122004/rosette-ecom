@@ -37,15 +37,24 @@ app.get('*', (req, res) => {
   res.sendFile(path.join(frontendPath, 'index.html'));
 });
 
-// MongoDB + Start Server
-mongoose.connect(process.env.MONGO_URI)
-  .then(() => {
+// MongoDB + Start Server (Conditional for Vercel)
+const connectDB = async () => {
+  try {
+    await mongoose.connect(process.env.MONGO_URI);
     console.log('Connected to MongoDB Atlas');
+  } catch (err) {
+    console.error('Failed to connect to MongoDB Atlas', err);
+  }
+};
+
+if (process.env.NODE_ENV !== 'production') {
+  connectDB().then(() => {
     app.listen(PORT, () => {
       console.log(`Server running on port ${PORT}`);
     });
-  })
-  .catch((err) => {
-    console.error('Failed to connect to MongoDB Atlas', err);
-    process.exit(1);
   });
+} else {
+  connectDB();
+}
+
+export default app;
