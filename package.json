@@ -2,12 +2,15 @@
   "name": "rosette-ecom",
   "version": "1.0.0",
   "private": true,
+  "type": "module",
+  "workspaces": [
+    "server",
+    "website"
+  ],
   "scripts": {
-    "build": "npm install && cd website && npm install && npm run build",
+    "build": "npm install && npm run build --workspaces",
     "start": "node server/server.js",
-    "dev": "concurrently \"npm run dev-server\" \"npm run dev-website\"",
-    "dev-server": "cd server && npm run dev",
-    "dev-website": "cd website && npm run dev"
+    "dev": "concurrently \"npm run dev --workspace=server\" \"npm run dev --workspace=website\""
   },
   "devDependencies": {
     "concurrently": "^8.2.2"
