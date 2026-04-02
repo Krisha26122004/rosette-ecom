@@ -5,8 +5,8 @@
   "scripts": {
     "install-server": "cd server && npm install",
     "install-website": "cd website && npm install",
-    "install-all": "npm install && npm run install-server && npm run install-website",
-    "build": "cd website && npm run build",
+    "install-all": "npm install && cd server && npm install && cd ../website && npm install",
+    "build": "cd website && npm install && npm run build",
     "start": "cd server && node server.js",
     "dev": "concurrently \"npm run dev-server\" \"npm run dev-website\"",
     "dev-server": "cd server && npm run dev",
