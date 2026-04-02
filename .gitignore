@@ -1,0 +1,8 @@
+node_modules
+.env
+.DS_Store
+website/dist
+server/node_modules
+website/node_modules
+package-lock.json
+*.log

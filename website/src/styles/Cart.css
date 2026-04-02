@@ -1,0 +1,232 @@
+.checkout-page {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 0 20px;
+    font-family: 'Inter', 'Poppins', sans-serif;
+    color: #333;
+}
+
+.checkout-title {
+    font-size: 32px;
+    color: #831843;
+    margin-bottom: 30px;
+    font-weight: 700;
+}
+
+/* Empty Cart Premium UI */
+.empty-cart {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 80px 20px;
+    background: linear-gradient(135deg, rgba(253, 242, 248, 0.5), rgba(252, 231, 243, 0.8));
+    border-radius: 24px;
+    box-shadow: 0 10px 30px rgba(244, 114, 182, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(10px);
+    text-align: center;
+}
+
+.empty-cart-img {
+    width: 150px;
+    margin-bottom: 25px;
+    opacity: 0.8;
+}
+
+.empty-cart h2 {
+    font-size: 28px;
+    color: #9d174d;
+    margin-bottom: 10px;
+}
+
+.empty-cart p {
+    color: #666;
+    margin-bottom: 30px;
+    font-size: 16px;
+}
+
+.shop-btn {
+    padding: 14px 30px;
+    background: #db2777;
+    color: white;
+    text-decoration: none;
+    border-radius: 30px;
+    font-weight: 600;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    box-shadow: 0 6px 16px rgba(219, 39, 119, 0.2);
+}
+
+.shop-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(236, 72, 153, 0.5);
+}
+
+/* 2-Column Grid */
+.checkout-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 40px;
+}
+
+@media (max-width: 900px) {
+    .checkout-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Items List */
+.order-section h2 {
+    font-size: 22px;
+    color: #831843;
+    border-bottom: 2px solid #fce7f3;
+    padding-bottom: 15px;
+    margin-bottom: 20px;
+}
+
+.order-card {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    background: white;
+    padding: 20px;
+    border-radius: 16px;
+    margin-bottom: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+    border: 1px solid #f9a8d4;
+    transition: transform 0.2s ease;
+}
+
+.order-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(244, 114, 182, 0.15);
+}
+
+.order-card img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 12px;
+}
+
+.order-info h3 {
+    margin: 0 0 10px 0;
+    font-size: 18px;
+    color: #4c1d95;
+}
+
+.order-info .price {
+    font-weight: 700;
+    font-size: 18px;
+    color: #db2777;
+    margin: 0 0 15px 0;
+}
+
+.remove-btn {
+    background: transparent;
+    color: #ef4444;
+    border: 1px solid #fecaca;
+    padding: 6px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: 0.2s;
+}
+
+.remove-btn:hover {
+    background: #fef2f2;
+    border-color: #ef4444;
+}
+
+/* Payment Summary Box */
+.payment-summary {
+    background: linear-gradient(135deg, white, #fdf2f8);
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(244, 114, 182, 0.12);
+    border: 1px solid #fce7f3;
+    position: sticky;
+    top: 40px;
+}
+
+.payment-summary h2 {
+    margin-top: 0;
+    color: #831843;
+    font-size: 22px;
+    border-bottom: 2px solid #fce7f3;
+    padding-bottom: 15px;
+    margin-bottom: 20px;
+}
+
+.payment-summary p {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+    color: #555;
+    font-size: 16px;
+}
+
+.payment-summary p span {
+    font-weight: 600;
+    color: #333;
+}
+
+.global-delivery-options {
+    background: rgba(255, 255, 255, 0.6);
+    padding: 15px;
+    border-radius: 12px;
+    margin-bottom: 20px;
+    border: 1px solid #fbcfe8;
+}
+
+.global-delivery-options label {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    font-size: 15px;
+}
+
+.global-delivery-options input[type="radio"] {
+    accent-color: #ec4899;
+    width: 16px;
+    height: 16px;
+}
+
+.payment-summary hr {
+    border: none;
+    border-top: 1px dashed #f9a8d4;
+    margin: 20px 0;
+}
+
+.payment-summary h3 {
+    display: flex;
+    justify-content: space-between;
+    font-size: 24px;
+    color: #831843;
+    margin-bottom: 25px;
+}
+
+.payment-summary h3 span {
+    color: #db2777;
+}
+
+.place-order-btn {
+    width: 100%;
+    padding: 16px;
+    background: #db2777;
+    color: white;
+    border: none;
+    border-radius: 12px;
+    font-size: 18px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 6px 20px rgba(219, 39, 119, 0.2);
+}
+
+.place-order-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(236, 72, 153, 0.5);
+}

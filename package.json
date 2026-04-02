@@ -1,0 +1,18 @@
+{
+  "name": "rosette-ecom",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "install-server": "cd server && npm install",
+    "install-website": "cd website && npm install",
+    "install-all": "npm install && npm run install-server && npm run install-website",
+    "build": "cd website && npm run build",
+    "start": "cd server && node server.js",
+    "dev": "concurrently \"npm run dev-server\" \"npm run dev-website\"",
+    "dev-server": "cd server && npm run dev",
+    "dev-website": "cd website && npm run dev"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
+}
