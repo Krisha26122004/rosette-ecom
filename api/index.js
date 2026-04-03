@@ -60,20 +60,29 @@ app.use((req, res, next) => {
   }
 });
 
+// Database Connection Middleware
+let cachedDb = null;
+const connectToDatabase = async () => {
+  if (cachedDb) return cachedDb;
+  if (!MONGO_URI) {
+    console.warn('⚠️ MONGO_URI is missing!');
+    return null;
+  }
+  cachedDb = await mongoose.connect(MONGO_URI);
+  console.log('Connected to MongoDB Atlas');
+  return cachedDb;
+};
+
+app.use(async (req, res, next) => {
+  await connectToDatabase();
+  next();
+});
+
 // Start Server Locally (Only if NOT on Vercel)
 if (process.env.NODE_ENV !== 'production' && !process.env.VERCEL) {
   app.listen(PORT, () => {
-    console.log(`Server running on port ${PORT}`);
+    console.log(`Server running locally on port ${PORT}`);
   });
 }
-
-// Connect to MongoDB in background
-mongoose.connect(MONGO_URI)
-  .then(() => {
-    console.log('Connected to Local MongoDB');
-  })
-  .catch((err) => {
-    console.error('Failed to connect to MongoDB', err);
-  });
 
 export default app;
