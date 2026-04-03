@@ -12,10 +12,22 @@ import contactRoutes from './routes/contact.js';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-dotenv.config();
+dotenv.config({ path: path.join(__dirname, '../.env') });
+
+// In production (Vercel), only use process.env.MONGO_URI
+const MONGO_URI = process.env.MONGO_URI;
 
 const app = express();
 const PORT = process.env.PORT || 5000;
+
+// Health Check for Vercel troubleshooting
+app.get('/api/health', (req, res) => {
+  res.json({ 
+    status: 'online', 
+    db_configured: !!process.env.MONGO_URI,
+    time: new Date().toISOString()
+  });
+});
 
 // Middleware
 app.use(cors());
@@ -32,22 +44,34 @@ const frontendPath = path.join(__dirname, '../website/dist');
 app.use(express.static(frontendPath));
 
 // Catch-all route to serve index.html for SPA (must be last)
-app.get('*', (req, res) => {
-  if (req.url.startsWith('/api')) return res.status(404).json({ message: 'API Route Not Found' });
-  res.sendFile(path.join(frontendPath, 'index.html'));
+app.use((req, res, next) => {
+  if (req.path.startsWith('/api')) return next();
+  
+  // Only serve index.html if it exists (usually in production)
+  const indexPath = path.join(frontendPath, 'index.html');
+  if (req.accepts('html')) {
+    res.sendFile(indexPath, (err) => {
+      if (err) {
+        res.status(200).send('<h1>Rosette Backend API</h1><p>The backend is running perfectly on port 5000! ✨ Please use <b>localhost:5173</b> to view the website during development.</p>');
+      }
+    });
+  } else {
+    next();
+  }
 });
 
-// MongoDB + Start Server
-mongoose.connect(process.env.MONGO_URI)
+// Start Server Immediately
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
+});
+
+// Connect to MongoDB in background
+mongoose.connect(MONGO_URI)
   .then(() => {
-    console.log('Connected to MongoDB Atlas');
-    app.listen(PORT, () => {
-      console.log(`Server running on port ${PORT}`);
-    });
+    console.log('Connected to Local MongoDB');
   })
   .catch((err) => {
-    console.error('Failed to connect to MongoDB Atlas', err);
-    process.exit(1);
+    console.error('Failed to connect to MongoDB', err);
   });
 
 export default app;
