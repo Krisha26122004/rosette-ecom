@@ -7,9 +7,11 @@ const router = express.Router();
 router.get('/', async (req, res) => {
   try {
     const products = await Product.find({});
+    console.log(`🌸 Fetched ${products.length} products from Database!`);
     res.json(products);
   } catch (error) {
-    res.status(500).json({ message: 'Server error' });
+    console.error('❌ Error fetching products:', error.message);
+    res.status(500).json({ message: 'Server error', error: error.message });
   }
 });
 
