@@ -66,6 +66,58 @@ function About({ cart }) {
                             </p>
                         </div>
                     </div>
+
+                    <section className="about-team-section">
+                        <h2>Meet the Creators</h2>
+                        <div className="team-grid">
+                            <div className="team-card">
+                                <div className="team-initial-wrapper">KD</div>
+                                <h3>Krisha Darji</h3>
+                                <p>Founder & Lead Artist</p>
+                            </div>
+                            <div className="team-card">
+                                <div className="team-initial-wrapper">DD</div>
+                                <h3>Dipali Darji</h3>
+                                <p>Co-founder & Creative Director</p>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section className="testimonials-section">
+                        <h2>Voices from the Garden</h2>
+                        <div className="testimonials-grid">
+                            <div className="review-card">
+                                <span className="quote-icon">“</span>
+                                <p className="review-text">
+                                    "I bought a tulip bouquet for my mother, and she was speechless. The detail is incredible, and the coquette theme matches my room perfectly!"
+                                </p>
+                                <div className="review-user">
+                                    <div className="user-avatar">A</div>
+                                    <span className="user-name">Anjali R.</span>
+                                </div>
+                            </div>
+                            <div className="review-card">
+                                <span className="quote-icon">“</span>
+                                <p className="review-text">
+                                    "The products are even more beautiful in person. Rosette's crochet work is so high quality, and it brings such a gentle vibe to my home."
+                                </p>
+                                <div className="review-user">
+                                    <div className="user-avatar">P</div>
+                                    <span className="user-name">Priya S.</span>
+                                </div>
+                            </div>
+                            <div className="review-card">
+                                <span className="quote-icon">“</span>
+                                <p className="review-text">
+                                    "Such a sweet experience shopping here. The 'Enter the Garden' entrance was so magical! My floor mat is plush and lovely."
+                                </p>
+                                <div className="review-user">
+                                    <div className="user-avatar">M</div>
+                                    <span className="user-name">Meera K.</span>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
                 </section>
 
                 <section className="cta-section">

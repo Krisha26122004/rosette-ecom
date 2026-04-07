@@ -232,6 +232,77 @@ body {
     box-shadow: 0 10px 20px rgba(219, 39, 119, 0.15);
 }
 
+/* NEW PREMIUM STATS SHOWCASE */
+.stats-showcase-v3 {
+    background-color: #fdfbf7;
+    padding: 80px 20px;
+    border-top: 1px solid #f3e8e2;
+    border-bottom: 1px solid #f3e8e2;
+    margin: 40px 0;
+}
+
+.stats-grid-v3 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    gap: 40px;
+}
+
+.stat-card-v3 {
+    flex: 1;
+    text-align: center;
+    padding: 20px;
+    transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.stat-card-v3:hover {
+    transform: translateY(-8px);
+}
+
+.stat-num-v3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 4.5rem;
+    font-weight: 900;
+    color: #831843;
+    margin: 0;
+    line-height: 1;
+    letter-spacing: -2px;
+}
+
+.stat-label-v3 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #db2777;
+    margin-top: 10px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    opacity: 0.8;
+}
+
+.stat-divider-v3 {
+    width: 1px;
+    height: 80px;
+    background: linear-gradient(to bottom, transparent, #f3e8e2, transparent);
+}
+
+@media (max-width: 768px) {
+    .stats-grid-v3 {
+        flex-direction: column;
+        gap: 60px;
+    }
+    .stat-divider-v3 {
+        width: 80px;
+        height: 1px;
+        background: linear-gradient(to right, transparent, #f3e8e2, transparent);
+    }
+    .stat-num-v3 {
+        font-size: 3.5rem;
+    }
+}
+
 .products-horizontal {
     flex: 2;
 }
@@ -904,4 +975,41 @@ body {
 
 .back-link:hover {
     transform: translateX(-5px);
+}
+
+/* --- NEW HOMEPAGE ANIMATIONS --- */
+@keyframes navSlideDown {
+    from { transform: translateY(-100%); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes heroReveal {
+    from { transform: translateX(-30px); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes fadeInUpGimmick {
+    from { transform: translateY(40px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+.animate-nav {
+    animation: navSlideDown 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-hero {
+    animation: heroReveal 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    animation-delay: 0.2s;
+    opacity: 0;
+}
+
+.animate-products-container {
+    animation: fadeInUpGimmick 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    animation-delay: 0.4s;
+    opacity: 0;
+}
+
+.animate-card {
+    opacity: 0;
+    animation: fadeInUpGimmick 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }

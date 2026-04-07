@@ -12,7 +12,7 @@ import contactRoutes from './routes/contact.js';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-dotenv.config();
+dotenv.config({ path: path.join(__dirname, '../.env') });
 
 const app = express();
 const PORT = process.env.PORT || 5000;
@@ -38,18 +38,15 @@ app.use((req, res, next) => {
   res.status(200).send('Rosette Backend is running locally! ✨ (Vite handles the website at localhost:5173)');
 });
 
-// MongoDB + Start Server
+// MongoDB Connection
 const MONGO_URI = process.env.MONGO_URI || 'mongodb://127.0.0.1:27017/rosette';
 mongoose.connect(MONGO_URI)
-  .then(() => {
-    console.log('✅ Connected to MongoDB Atlas');
-    app.listen(PORT, () => {
-      console.log(`🚀 Server running on http://localhost:${PORT}`);
-    });
-  })
-  .catch((err) => {
-    console.error('Failed to connect to MongoDB Atlas', err);
-    process.exit(1);
-  });
+  .then(() => console.log('✅ Connected to MongoDB Atlas'))
+  .catch((err) => console.error('❌ Database Connection Error:', err.message));
+
+// Start Server
+app.listen(PORT, () => {
+  console.log(`🚀 Server running on http://localhost:${PORT}`);
+});
 
 export default app;

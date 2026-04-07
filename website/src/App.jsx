@@ -11,6 +11,8 @@ import ProductDetails from "./pages/ProductDetails.jsx";
 import About from "./pages/About.jsx";
 import Contact from "./pages/Contact.jsx";
 
+import Landing from "./pages/Landing.jsx";
+
 function App() {
 
   const [cart, setCart] = useState([]);
@@ -21,7 +23,7 @@ function App() {
     <BrowserRouter>
       <Routes>
 
-        <Route path="/" element={<HomePage cart={cart} setCart={setCart} />} />
+        <Route path="/" element={<Landing />} />
 
         <Route path="/login" element={<Login />} />
 

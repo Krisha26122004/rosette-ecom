@@ -21,8 +21,7 @@ function Login() {
                 alert("Welcome back, " + data.firstName + "!");
                 navigate("/");
             } else {
-                const errorData = await res.json().catch(() => ({}));
-                alert(errorData.message || "Login failed. Please check your credentials.");
+                alert(data.message || "Login failed. Please check your credentials.");
             }
         } catch (err) {
             console.error(err);

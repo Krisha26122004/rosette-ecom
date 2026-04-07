@@ -15,7 +15,7 @@ function HomepageCard({ product, addToCart }) {
     };
 
     return (
-        <div className="product-card-premium">
+        <div className="product-card-premium animate-card" style={{ animationDelay: `${Math.random() * 0.5 + 0.2}s` }}>
             <Link to={`/product/${product._id || product.id}`} className="card-link-wrapper">
                 <div className="card-img-container">
                     <img src={product.image} alt={product.name} />
@@ -73,7 +73,7 @@ export function HomePage({ cart, setCart }) {
 
     return (
         <div>
-            <header className="nav-bar">
+            <header className="nav-bar animate-nav">
 
                 <div className="logo">🌷 Rosette</div>
 
@@ -131,7 +131,7 @@ export function HomePage({ cart, setCart }) {
             </header>
 
             <section className="hero">
-                <div className="hero-text">
+                <div className="hero-text animate-hero">
                     <h1>Soft Flowers, Sweet Feelings</h1>
                     <p>Handmade coquette crochet bouquets for gentle hearts 🌸</p>
                     <div className="hero-actions">
@@ -146,7 +146,7 @@ export function HomePage({ cart, setCart }) {
                     </div>
                 </div>
 
-                <section className="products-horizontal">
+                <section className="products-horizontal animate-products-container">
                     <h2>Featured Products</h2>
 
                     {filteredProducts.length === 0 ? (
